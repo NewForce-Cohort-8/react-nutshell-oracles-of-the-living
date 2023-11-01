@@ -18,10 +18,23 @@ export const TaskList = () => {
                       <button onClick={() => navigate("/task/create")}>Create Task</button> 
                              <h2> List Of Tasks</h2>
                                  <article className="task">
-                                              { //add bracket
-                                                         tasks.map( (task) => {
-                                                                                return <section>
-                                                                                         <label>  {task.task} </label>
+                                              {                           ///added this "checkbox" for show/noshow after checked          
+                                                         tasks.map( (task, checkbox) => {
+                                                                                return <section key={checkbox}>  
+                                                                                                                 {/* /// key is checkbox */}
+                                                                                         <label>  
+                                                                                            <input type="checkbox" onChange={()=>{
+                                                                                            const updatedTasks = [...tasks];
+                                                                                            updatedTasks[checkbox].completed = !updatedTasks[checkbox].completed
+                                                                                            setTasks(updatedTasks)
+                                                                                         }}/> 
+                                                                                         
+                                                                                         {!task.completed ? (
+                                                                                            <span>
+                                                                                              {task.task} / Complete By {task.neededBy}
+                                                                                            </span>
+                                                                                          ) : null}
+                                                                                          </label>
                                                                                     </section> 
                                                                                }
                                                                       )

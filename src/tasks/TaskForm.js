@@ -29,6 +29,7 @@ const taskToSendToAPI ={
     userId: nutshellUserObject.id,
     neededBy: task.neededBy,
     task: task.task,
+    completed: false,
     dateCompleted: ""
 }
         // TODO: Perform the fetch() to POST the object to the API

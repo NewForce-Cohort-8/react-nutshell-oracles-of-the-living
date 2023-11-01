@@ -1,10 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import { TaskList } from "../tasks/TaskList";
+import { TaskForm } from "../tasks/TaskForm";
 <div className='Dashboard'>
 	<header className='App-header'>
 		<h1>Welcome to Nutshell</h1>
 	</header>
 </div>;
+
 export const ApplicationViews = () => {
 	const localNutshellUser = localStorage.getItem("activeUser");
 	const nutshellUserObject = JSON.parse(localNutshellUser);
@@ -14,8 +16,9 @@ export const ApplicationViews = () => {
 			<>
 			<Routes>
 				
-				
-					<Route path="/" element = {<TaskList />}> </Route>
+	
+					<Route path="/tasks" element = {<TaskList />}> </Route>
+					<Route path="/task/create" element = {<TaskForm />}> </Route>
 				
 				
 				</Routes>

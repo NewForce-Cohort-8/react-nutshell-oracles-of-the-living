@@ -5,6 +5,8 @@ export const NavBar = () => {
 
 	return (
 		<ul className='navbar'>
+			
+			
 			{localStorage.getItem("activeUser") ? (
 				<li className='navbar__item navbar__logout'>
 					<Link
@@ -18,6 +20,23 @@ export const NavBar = () => {
 						Logout
 					</Link>
 				</li>
+				
+				
+			) : (
+				""
+			)}
+			{localStorage.getItem("activeUser") ? (
+				<li className='navbar__item navbar__task'>
+					<Link
+						className='navbar__link'
+						to='/tasks'
+					
+					>
+						Task
+					</Link>
+				</li>
+				
+				
 			) : (
 				""
 			)}

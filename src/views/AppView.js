@@ -1,3 +1,6 @@
+import { NewsArticleList } from "../news/NewsArticleList";
+import { NewsForm } from "../news/NewsForm";
+
 <div className='Dashboard'>
 	<header className='App-header'>
 		<h1>Welcome to Nutshell</h1>
@@ -10,7 +13,10 @@ export const ApplicationViews = () => {
 	if (nutshellUserObject) {
 		return (
 			<>
-				<div className='Dashboard'></div>
+				<div className='Dashboard'>
+					<NewsForm/>
+					<NewsArticleList/>
+				</div>
 			</>
 		);
 	}

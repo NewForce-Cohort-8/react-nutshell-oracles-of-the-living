@@ -65,11 +65,24 @@ const taskToSendToAPI ={
                         } />
                 </div>
                 <div class="">
-                <label className="labelDate" htmlForfor="serviceDate">Date needed To be Completed</label>
-                <input type="date" id="serviceDate"   />
-    </div>
-
+                    <label className="labelDate" htmlForfor="serviceDate">Date needed To be Completed</label>
+                    <input 
+                    
+                    type="date"
+                    className="form-date"
+                     value={task.neededBy} 
+                     onChange={
+                        (evt) => {
+                            const copy2 = {...task}
+                            copy2.neededBy = evt.target.value
+                            update(copy2)
+                        }
+                    } 
+                      />
+                </div>
+                
             </fieldset>
+            
             {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Emergency:</label>///////////////did not want this from honeyraerepair and maybe I do 
@@ -78,6 +91,7 @@ const taskToSendToAPI ={
                         onChange={} /> //event.target.checked not value
                 </div>
             </fieldset> */}
+            
             <button 
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
             className="btn btn-primary">

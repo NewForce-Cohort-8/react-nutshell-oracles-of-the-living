@@ -1,3 +1,5 @@
+import { Route, Routes } from "react-router-dom";
+import { TaskList } from "../tasks/TaskList";
 <div className='Dashboard'>
 	<header className='App-header'>
 		<h1>Welcome to Nutshell</h1>
@@ -10,8 +12,15 @@ export const ApplicationViews = () => {
 	if (nutshellUserObject) {
 		return (
 			<>
-				<div className='Dashboard'></div>
+			<Routes>
+				
+				
+					<Route path="/" element = {<TaskList />}> </Route>
+				
+				
+				</Routes>
 			</>
 		);
 	}
 };
+

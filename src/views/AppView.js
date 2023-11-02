@@ -1,5 +1,6 @@
 import { NewsArticleList } from "../news/NewsArticleList";
 import { NewsForm } from "../news/NewsForm";
+import {Route, Routes} from "react-router-dom"
 
 <div className='Dashboard'>
 	<header className='App-header'>
@@ -14,8 +15,11 @@ export const ApplicationViews = () => {
 		return (
 			<>
 				<div className='Dashboard'>
-					<NewsForm/>
-					<NewsArticleList/>
+				<>
+				<Routes>
+				<Route path="/news" element= {<> <NewsForm/> <NewsArticleList/> </>}/>
+				</Routes>
+				</>
 				</div>
 			</>
 		);

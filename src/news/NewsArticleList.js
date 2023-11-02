@@ -3,9 +3,16 @@ import { ArticleEntry } from "./NewsArticleEntry"
 import { getAllNewsArticles } from "./NewsAPIManager"
 
 
-export const NewsArticleList = ({ deleteArticleEntry, updateArticleState }) => {
+export const NewsArticleList = () => {
 
     const [articleEntries, setArticleEntries] = useState([])
+
+    const updateArticleState = () => {
+        return getAllNewsArticles()
+          .then((articleArray) => {
+            setArticleEntries(articleArray)
+          })
+        }
 
     useEffect(
         () => {
@@ -17,10 +24,12 @@ export const NewsArticleList = ({ deleteArticleEntry, updateArticleState }) => {
         [] //where we observe state - if empty we are just watching intial component state
     )
 
+   
+
     return (
         <>
             {
-                articleEntries.map((singleArticle) => <ArticleEntry key={`article--${singleArticle.id}`} singleArticle={singleArticle} deleteArticleEntry={deleteArticleEntry} updateArticleState={updateArticleState} />)
+                articleEntries.map((singleArticle) => <ArticleEntry key={`article--${singleArticle.id}`} singleArticle={singleArticle} updateArticleState={updateArticleState} />)
             }
         </>
     )

@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { ArticleEntry } from "./NewsArticleEntry"
+import './NewsForm.css'
 
 export const NewsForm = ({updateArticleState}) => {
+    
    
     const [articleEntry, setArticleEntry] = useState({})
 
@@ -32,7 +34,7 @@ export const NewsForm = ({updateArticleState}) => {
     }
 
 
-    return <> <form onSubmit={saveEntry}>
+    return <> <form className="newsform" onSubmit={saveEntry}>
         <div className="mb-3">
             <label for="title" className="form-label">Title</label>
             <input type="text" className="form-control" id="title" aria-describedby="title" value={articleEntry.title} onChange={handleControlledInputChange} />

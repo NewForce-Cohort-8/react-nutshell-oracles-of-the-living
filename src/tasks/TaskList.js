@@ -48,7 +48,7 @@ export const TaskList = () => {
                                                                                          {!task.completed ? (
                                                                                             
                                                                                             <span className="task-date">
-                                                                                        git 
+                                                                                        
                                                                                                { task.task} by {task.neededBy} 
                                                                                             </span>
                                                                                           ) : null}

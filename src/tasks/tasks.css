@@ -59,6 +59,7 @@
     gap: 0.1rem;
   }
   
+  
   .create-task-btn {
     background: hsl(200, 100%, 50%, 0.1);
     border: 1px solid hsl(200, 100%, 50%);
@@ -146,6 +147,19 @@
     background-color: #2980b9; /* Change background color on hover */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
     transform: scale(1.1); /* Scale the button slightly on hover */
+  }
+  .delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: darkred;
   }
   
   

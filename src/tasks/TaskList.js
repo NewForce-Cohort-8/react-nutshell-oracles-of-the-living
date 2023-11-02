@@ -17,6 +17,11 @@ export const TaskList = () => {
                                         })
                                     },[]
                                         ) // end of useEffect is here 
+                                        const handleTaskDelete = (taskId) => {
+                                            // Filter out the deleted task from the tasks list
+                                            const updatedTasks = tasks.filter((task) => task.id !== taskId);
+                                            setTasks(updatedTasks);
+                                        };
                  return <>
                  {/* added button to navigate to another page */}
                       {/* <button className="create-task-btn" onClick={() => navigate("/task/create")}>Create Task</button>  */}
@@ -38,16 +43,16 @@ export const TaskList = () => {
                                                                                             const updatedTasks = [...tasks];
                                                                                             updatedTasks[checkbox].completed = !updatedTasks[checkbox].completed
                                                                                             setTasks(updatedTasks)
-                                                                                         }}/> 
+                                                                                         }} /> 
 
-                                                                                         {!task.completed ? (
+                                                                                         {!task.completed ? (git 
                                                                                             
                                                                                             <span className="task-date">
                                                                                         
-                                                                                              {task.task} / Complete By {task.neededBy} 
+                                                                                               { task.task} by {task.neededBy} 
                                                                                             </span>
                                                                                           ) : null}
-                                                                                          <TaskDeleteButton taskId={task.id}/>
+                                                                                          <TaskDeleteButton taskId={task.id} onDelete={handleTaskDelete}/>
                                                                                           </label>
                                                                                     </section>
                                                                                      </>

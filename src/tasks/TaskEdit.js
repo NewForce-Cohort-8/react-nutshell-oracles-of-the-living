@@ -34,62 +34,50 @@ export const TaskEdit = () => {
     }
 
 
-    return <form className="taskForm">
-        <h2 className="taskForm__title">Edit Task</h2>
-        <fieldset>
+    return (
+        <div className="formContainer">
+  <div className="taskFormCard">
+        <form className="taskForm">
+          <h2 className="taskForm__title">Edit Task</h2>
+          <fieldset>
             <div className="form-group">
-                <label htmlFor="description">Make Changes:</label>
-                <textarea
-                    required autoFocus
-                    type="text"
-                    style={{
-                        height: "10rem"
-                    }}
-                    className="form-control"
-                    value={task.task}
-                    onChange={
-                        (evt) => {
-                            const copy = { ...task }
-                            copy.task = evt.target.value
-                            assignTask(copy)
-                        }
-                    }>{task.task}</textarea>
+              <label htmlFor="description"> Change Task:</label>
+              <textarea
+                required
+                autoFocus
+                className="form-control"
+                value={task.task}
+                onChange={(evt) => {
+                  const copy = { ...task };
+                  copy.task = evt.target.value;
+                  assignTask(copy);
+                }}
+              ></textarea>
             </div>
             <div class="">
-                    <label className="labelDate" htmlForfor="serviceDate">Date needed To be Completed</label>
-                    <input 
-                    
-                    type="date"
-                    className="form-date"
-                     value={task.neededBy} 
-                     onChange={
-                        (evt) => {
-                            const copy2 = {...task}
-                            copy2.neededBy = evt.target.value
-                            assignTask(copy2)
-                        }
-                    } 
-                      />
-                </div>
-        </fieldset>
-        {/* <fieldset>
-            <div className="form-group">
-                <label htmlFor="name">Emergency:</label>
-                <input type="checkbox"
-                    checked={ticket.emergency}
-                    onChange={
-                        (evt) => {
-                            const copy = { ...ticket }
-                            copy.emergency = evt.target.checked
-                            assignTicket(copy)
-                        }
-                    } />
+              <label className="labelDate" htmlFor="serviceDate">
+                Change Date : 
+              </label>
+              <input
+                type="date"
+                className="form-date"
+                value={task.neededBy}
+                onChange={(evt) => {
+                  const copy2 = { ...task };
+                  copy2.neededBy = evt.target.value;
+                  assignTask(copy2);
+                }}
+              />
             </div>
-        </fieldset> */}
-        <button
+          </fieldset>
+          <button
             onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-            className="btn btn-primary">
+            className="btn btn-primary"
+          >
             Save Edits
-        </button>
-    </form>
-}
+          </button>
+        </form>
+        </div>
+        </div>
+      );
+    };

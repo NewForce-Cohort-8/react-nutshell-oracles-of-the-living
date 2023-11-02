@@ -5,6 +5,8 @@ export const NavBar = () => {
 
 	return (
 		<ul className='navbar'>
+			
+			
 			{localStorage.getItem("activeUser") ? (
 				<li className='navbar__item navbar__logout'>
 					<Link
@@ -18,9 +20,23 @@ export const NavBar = () => {
 						Logout
 					</Link>
 				</li>
+				
+				
 			) : (
+				""
+			)}
+			{/* // ////////////////////////////////////////////////////////////////////// tasks by Juan  +duplicate of logout nav link  */}
+			{localStorage.getItem("activeUser") ? (
+				<li className='navbar__item navbar__task'>
+					<Link className='navbar__link'to='/tasks'>
+						Tasks
+					</Link>
+					 {/* /// i removed the onclick cuz it would log me out when i clicked my nav link */}
+				</li>
+				) : (
 				""
 			)}
 		</ul>
 	);
+	
 };

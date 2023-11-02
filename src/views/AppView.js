@@ -1,3 +1,8 @@
+import { Route, Routes } from "react-router-dom";
+import { TaskList } from "../tasks/TaskList";
+import { TaskForm } from "../tasks/TaskForm";
+import { TaskCreateTaskButton } from "../tasks/TaskCreateTask";
+import { TaskEdit } from "../tasks/TaskEdit";
 import { Route } from "react-router-dom";
 import { MessageList } from "../messages/MessageList";
 import { Message } from "../messages/Message";
@@ -9,6 +14,7 @@ import { MessageContainer } from "../messages/MessageContainer";
 		<h1>Welcome to Nutshell</h1>
 	</header>
 </div>;
+
 export const ApplicationViews = () => {
 	const localNutshellUser = localStorage.getItem("activeUser");
 	const nutshellUserObject = JSON.parse(localNutshellUser);
@@ -16,10 +22,17 @@ export const ApplicationViews = () => {
 	if (nutshellUserObject) {
 		return (
 			<>
-				<div className='Dashboard'>
-					<MessageContainer />
-				</div>
+			<Routes>
+				
+	
+					<Route path="/tasks" element = {<TaskList />}> </Route>
+					<Route path="/task/create" element = {<TaskForm />}> </Route>
+					<Route path="/tasks" element = {<TaskCreateTaskButton />}> </Route>
+					<Route path="tasks/:taskId/edit" element={ <TaskEdit/> } />
+				
+				</Routes>
 			</>
 		);
 	}
 };
+

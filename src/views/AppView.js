@@ -1,3 +1,7 @@
+import { Outlet, Route, Routes } from "react-router-dom";
+import { ImageEdit } from "../images/ImageEdit";
+import { ImageForm } from "../images/ImageForm";
+
 <div className='Dashboard'>
 	<header className='App-header'>
 		<h1>Welcome to Nutshell</h1>
@@ -10,7 +14,22 @@ export const ApplicationViews = () => {
 	if (nutshellUserObject) {
 		return (
 			<>
-				<div className='Dashboard'></div>
+				<div className='Dashboard'>
+					<Routes>
+						<Route
+							path='/'
+							element={
+								<>
+									<h1>Nutshell</h1>
+									<Outlet />
+								</>
+							}
+						>
+							<Route path='image/create' element={<ImageForm />} />
+							<Route path='images/:imageId/edit' element={<ImageEdit />} />
+						</Route>
+					</Routes>
+				</div>
 			</>
 		);
 	}

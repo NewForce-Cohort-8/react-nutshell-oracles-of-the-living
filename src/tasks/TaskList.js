@@ -28,7 +28,7 @@ export const TaskList = () => {
                              <TaskCreateTaskButton/>
                              <div className="taskContainer">
                              <div className="taskListCard">
-                             <h2> List Of Tasks</h2>
+                             <h2> To-Do List </h2>
                                  <article className="tasklist">
                                               {                           ///added this "checkbox" for show/noshow after checked          
                                                          tasks.map( (task, checkbox) => {
@@ -52,6 +52,7 @@ export const TaskList = () => {
                                                                                                { task.task} by {task.neededBy} 
                                                                                             </span>
                                                                                           ) : null}
+                                                                                          <br></br>
                                                                                           <TaskDeleteButton taskId={task.id} onDelete={handleTaskDelete}/>
                                                                                           </label>
                                                                                     </section>

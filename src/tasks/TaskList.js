@@ -45,10 +45,10 @@ export const TaskList = () => {
                                                                                             setTasks(updatedTasks)
                                                                                          }} /> 
 
-                                                                                         {!task.completed ? (git 
+                                                                                         {!task.completed ? (
                                                                                             
                                                                                             <span className="task-date">
-                                                                                        
+                                                                                        git 
                                                                                                { task.task} by {task.neededBy} 
                                                                                             </span>
                                                                                           ) : null}

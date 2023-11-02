@@ -1,4 +1,5 @@
 import { NewsArticleList } from "../news/NewsArticleList";
+import { NewsContainer } from "../news/NewsContainer";
 import { NewsForm } from "../news/NewsForm";
 import {Route, Routes} from "react-router-dom"
 
@@ -17,7 +18,7 @@ export const ApplicationViews = () => {
 				<div className='Dashboard'>
 				<>
 				<Routes>
-				<Route path="/news" element= {<> <NewsForm/> <NewsArticleList/> </>}/>
+				<Route path="/news" element= {<NewsContainer/>}/>
 				</Routes>
 				</>
 				</div>

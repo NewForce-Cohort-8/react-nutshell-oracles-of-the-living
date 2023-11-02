@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import "./NewsCard.css"
 
 export const ArticleEntry = ({ singleArticle, updateArticleState }) => {
 
@@ -41,28 +42,30 @@ export const ArticleEntry = ({ singleArticle, updateArticleState }) => {
 
     }
 
+
+
     return <>
         {!showForm ?
-        <div className="card-center w-75 mb-3">
-            <div className="card text-center"> 
-                <div className="card-header">
-                    <p>{singleArticle.title}</p>
+        <>
+            <div class="card text-center">
+                <div class="card-header">
+                    {singleArticle.title}
                 </div>
-                <div>URL: {singleArticle.url}</div>
-                <div>Synopsis: {singleArticle.synopsis}</div>
+                <div class="card-body">
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
                 <button className="btn btn-primary" aria-label="edit" onClick={() => setShowForm(!showForm)}>Edit</button>
-                <button className="btn btn-danger" aria-label="delete" onClick={() => deleteArticleEntry(singleArticle.id)}>Delete</button>
-
-
-
+            <button className="btn btn-danger" aria-label="delete" onClick={() => deleteArticleEntry(singleArticle.id)}>Delete</button>
             </div>
-            </div>
+            
+            </>
+
             :
 
             <div className="card">
 
                 <div className="card-body">
-                    <input name="title" type="text" placeholder="" value={editArticle.title} onChange={handleControlledInputChange}/>
+                    <input name="title" type="text" placeholder="" value={editArticle.title} onChange={handleControlledInputChange} />
                     <button className="btn btn-success" onClick={(e) => UpdateEntry(e)}> Save </button>
                     <button className="btn btn-primary" onClick={() => setShowForm(!showForm)}> Cancel </button>
                 </div>

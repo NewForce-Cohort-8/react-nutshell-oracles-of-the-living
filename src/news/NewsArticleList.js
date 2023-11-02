@@ -3,29 +3,9 @@ import { ArticleEntry } from "./NewsArticleEntry"
 import { getAllNewsArticles } from "./NewsAPIManager"
 
 
-export const NewsArticleList = () => {
+export const NewsArticleList = ({articleEntries, updateArticleState}) => {
 
-    const [articleEntries, setArticleEntries] = useState([])
-
-    const updateArticleState = () => {
-        return getAllNewsArticles()
-          .then((articleArray) => {
-            setArticleEntries(articleArray)
-          })
-        }
-
-    useEffect(
-        () => {
-            getAllNewsArticles()
-                .then((articleArray) => {
-                    setArticleEntries(articleArray)
-                })
-        },
-        [] //where we observe state - if empty we are just watching intial component state
-    )
-
-   
-
+ 
     return (
         <>
             {

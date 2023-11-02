@@ -38,6 +38,7 @@ export const TaskEdit = () => {
               <textarea
                 required
                 autoFocus
+                id="description"
                 className="form-control"
                 value={task.task}
                 onChange={(evt) => {
@@ -52,6 +53,7 @@ export const TaskEdit = () => {
                 Change Date : 
               </label>
               <input
+              id="serviceDate"
                 type="date"
                 className="form-date"
                 value={task.neededBy}

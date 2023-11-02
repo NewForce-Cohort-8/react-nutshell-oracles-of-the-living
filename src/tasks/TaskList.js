@@ -22,6 +22,7 @@ export const TaskList = () => {
 
                                             const handleTaskDelete = (taskId) => {const updatedTasks = tasks.filter((task) => task.id !== taskId);
                                             setTasks(updatedTasks); };
+                                            
 
                                                             return <>
                                                  {/* i imported the taskCreatebuttona component above and invoked it into here */}
@@ -39,10 +40,10 @@ export const TaskList = () => {
                                                                                                                             </header>
 
                                                                                                                             <section className="task" key={task.id} >  
-                                                                                                                                                            {/* /// key is checkbox */}
+                                                                                                                                                           
                                                                                                                                     <label className="checkbox-btn">  
                                                                                                                                             <input id={`taskCheckbox_${task.id}`} className="ckeckbox-btn" type="checkbox" /> 
-                                                                                                                                     {/* //for checkbox to work */}
+                                                                                                            
                                                                                                                                             
                                                                                                                                                 <span className="task-date">
                                                                                                                                             

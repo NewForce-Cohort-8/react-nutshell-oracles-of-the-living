@@ -1,6 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom";
 import { ImageEdit } from "../images/ImageEdit";
 import { ImageForm } from "../images/ImageForm";
+import { ImageList } from "../images/ImageList";
 
 <div className='Dashboard'>
 	<header className='App-header'>
@@ -25,6 +26,7 @@ export const ApplicationViews = () => {
 								</>
 							}
 						>
+							<Route path='images' element={<ImageList />} />
 							<Route path='image/create' element={<ImageForm />} />
 							<Route path='images/:imageId/edit' element={<ImageEdit />} />
 						</Route>

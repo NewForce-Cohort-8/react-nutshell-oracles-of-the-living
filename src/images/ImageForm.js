@@ -29,7 +29,7 @@ export const ImageForm = () => {
 
 		const imageToSendToAPI = {
 			src: image.src,
-			caption: image.description,
+			caption: image.caption,
 			userId: activeUserObject.id,
 		};
 		// TODO: Perform the fetch() to POST the object to the API
@@ -67,7 +67,7 @@ export const ImageForm = () => {
 						value={image.caption}
 						onChange={(event) => {
 							const copy = { ...image };
-							copy.caption = event.target.checked;
+							copy.caption = event.target.value;
 							updateImage(copy);
 						}}
 					/>

@@ -1,66 +1,92 @@
-import { useEffect, useState, useCallback } from "react" // i basically copied honey-rae-repiar for this 
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TaskCreateTaskButton } from "./TaskCreateTask";
 import { TaskDeleteButton } from "./TaskDelete";
 import { getAllTasks } from "./TaskApiManager";
 import { Link } from "react-router-dom";
-import "../tasks/tasks.css"
+import "../tasks/tasks.css";
 
 export const TaskList = () => {
-        const [tasks, setTasks] = useState([]);
-        const navigate = useNavigate();
-        const localNutshellUser = localStorage.getItem("activeUser");
-	    const nutshellUserObject = JSON.parse(localNutshellUser);
+  const [tasks, setTasks] = useState([]);
+  const navigate = useNavigate();
 
-                                            // start of useEffect for fetching data drom api
-                            useEffect( () => {
-                                        getAllTasks()
-                                .then((taskArray)=>{
-                                        setTasks(taskArray)
-                                        })
-                                    },[] ) // end of useEffect 
+  useEffect(() => {
+    getAllTasks().then((taskArray) => {
+      setTasks(taskArray);
+    });
+  }, []);
 
-                                            const handleTaskDelete = (taskId) => {const updatedTasks = tasks.filter((task) => task.id !== taskId);
-                                            setTasks(updatedTasks); };
-                                            
+  const handleTaskDelete = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
+  };
 
-                                                            return <>
-                                                 {/* i imported the taskCreatebuttona component above and invoked it into here */}
-                                                                        <TaskCreateTaskButton/> 
+  const handleCheckboxChange = (taskId) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, completed: !task.completed }; // Toggle the completed status
+      }
+      return task;
+    });
 
-                                                                        <div className="taskContainer">
-                                                                        <div className="taskListCard">
-                                                                         <h2> To-Do List </h2>
-                                                                            <article className="tasklist">
-                                                                                        {      tasks.map( (task) => {
-                                                                                                                            return <section key={task.id}>
-                                                                                                                            <header>
-                                                                                                                            {/* //this liink is for editing tasks */}
-                                                                                                                                <Link to={`/tasks/${task.id}/edit`}>edit {task.id}</Link> 
-                                                                                                                            </header>
+    setTasks(updatedTasks);
 
-                                                                                                                            <section className="task" key={task.id} >  
-                                                                                                                                                           
-                                                                                                                                    <label className="checkbox-btn">  
-                                                                                                                                            <input id={`taskCheckbox_${task.id}`} className="ckeckbox-btn" type="checkbox" /> 
-                                                                                                            
-                                                                                                                                            
-                                                                                                                                                <span className="task-date">
-                                                                                                                                            
-                                                                                                                                                { task.task} by {task.neededBy} 
-                                                                                                                                                </span>
-                                                                                                                                            
-                                                                                                                                    <br></br>
-                                                                                                                                            <TaskDeleteButton taskId={task.id} onDelete={handleTaskDelete}/>
-                                                                                                                                    </label>
+    // Simulated update to the backend
+    updateTaskInDatabase(taskId, updatedTasks.find((task) => task.id === taskId).completed);
+  };
 
-                                                                                                                                </section>
-                                                                                                                                </section>
-                                                                                                                        }
-                                                                                                                    )
-                                                                                                           }
-                                                                                     </article>
-                                                                                    </div>
-                                                                                    </div>
-                                                                                    </>
-                                                                        }
+  const updateTaskInDatabase = (taskId, completedStatus) => {
+    // Simulated PUT request to your API
+    fetch(`http://localhost:8088/tasks/${taskId}`, {
+      method: 'PUT', // or 'PATCH'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ completed: completedStatus }),
+    })
+      .then((response) => {
+        // Handle response (success/failure)
+      })
+      .catch((error) => {
+        // Handle error
+      });
+  };
+
+  return (
+    <>
+      <TaskCreateTaskButton />
+
+      <div className="taskContainer">
+        <div className="taskListCard">
+          <h2>To-Do List</h2>
+          <article className="tasklist">
+            {tasks.map((task) => (
+              <section key={task.id}>
+                <header>
+                  <Link to={`/tasks/${task.id}/edit`}>Edit {task.id}</Link>
+                </header>
+
+                <section className="task" key={task.id}>
+                  <label className="checkbox-btn">
+                    <input
+                      id={`taskCheckbox_${task.id}`}
+                      className="ckeckbox-btn"
+                      type="checkbox"
+                      onChange={() => handleCheckboxChange(task.id)}
+                      checked={task.completed}
+                    />
+                    <span className="task-date">
+                      {task.task} by {task.neededBy}
+                    </span>
+                  </label>
+                </section>
+
+                <TaskDeleteButton taskId={task.id} onDelete={handleTaskDelete} />
+              </section>
+            ))}
+          </article>
+        </div>
+      </div>
+    </>
+  );
+};

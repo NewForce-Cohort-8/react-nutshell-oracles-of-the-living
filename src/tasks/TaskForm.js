@@ -1,6 +1,8 @@
 import { useState } from "react"//literally copy and pasted from book6 Ticket list 1-2 boilerplate code 
 import { useNavigate } from "react-router-dom"
 
+import "../tasks/tasks.css"
+
 export const TaskForm = () => {
     /*
         TODO: Add the correct default properties to the
@@ -45,19 +47,16 @@ const taskToSendToAPI ={
     }
 
     return (
+        <div className="formContainer">
+  <div className="taskFormCard">
         <form className="taskForm">
              {/* /////////////////////////////////////////////////////// Task by Juan : manipulated honeyraerepair code from book 6 to fit this project  */}
             <h2 className="taskForm__title">New Task</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="description">Task Name:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        placeholder="Brief description of task"
-                        value={task.task}
-                        onChange={
+                    <input required autoFocus type="text" className="form-control" placeholder="Brief description of task"
+                        value={task.task} onChange={
                             (evt) => {
                                 const copy = {...task}
                                 copy.task = evt.target.value
@@ -99,5 +98,7 @@ const taskToSendToAPI ={
                 Submit Task
             </button>
         </form>
+        </div>
+        </div>
     )
 }

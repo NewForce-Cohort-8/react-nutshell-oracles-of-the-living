@@ -1,5 +1,7 @@
 import { useEffect, useState, useCallback } from "react" // i basically copied honey-rae-repiar for this 
 import { useNavigate } from "react-router-dom";
+import { TaskCreateTaskButton } from "./TaskCreateTask";
+import "../tasks/tasks.css"
 
 export const TaskList = () => {
         const [tasks, setTasks] = useState([]);
@@ -15,22 +17,25 @@ export const TaskList = () => {
                                         ) // end of useEffect is here 
                  return <>
                  {/* added button to navigate to another page */}
-                      <button onClick={() => navigate("/task/create")}>Create Task</button> 
+                      {/* <button className="create-task-btn" onClick={() => navigate("/task/create")}>Create Task</button>  */}
+                             <TaskCreateTaskButton/>
+                             <div className="taskContainer">
+                             <div className="taskListCard">
                              <h2> List Of Tasks</h2>
-                                 <article className="task">
+                                 <article className="tasklist">
                                               {                           ///added this "checkbox" for show/noshow after checked          
                                                          tasks.map( (task, checkbox) => {
-                                                                                return <section key={checkbox}>  
+                                                                                return <section className="task" key={checkbox}>  
                                                                                                                  {/* /// key is checkbox */}
                                                                                          <label>  
-                                                                                            <input type="checkbox" onChange={()=>{
+                                                                                            <input className="ckeckbox-btn" type="checkbox" onChange={()=>{
                                                                                             const updatedTasks = [...tasks];
                                                                                             updatedTasks[checkbox].completed = !updatedTasks[checkbox].completed
                                                                                             setTasks(updatedTasks)
                                                                                          }}/> 
-                                                                                         
+
                                                                                          {!task.completed ? (
-                                                                                            <span>
+                                                                                            <span className="task-date">
                                                                                               {task.task} / Complete By {task.neededBy}
                                                                                             </span>
                                                                                           ) : null}
@@ -43,5 +48,7 @@ export const TaskList = () => {
 
 
                                         </article>
+                                        </div>
+                                        </div>
                                         </>
                             }

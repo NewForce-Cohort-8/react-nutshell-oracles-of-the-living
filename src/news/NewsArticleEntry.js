@@ -1,4 +1,4 @@
-export const ArticleEntry = (singleArticle) => {
+export const ArticleEntry = ({singleArticle}) => {
 
 
     return <>

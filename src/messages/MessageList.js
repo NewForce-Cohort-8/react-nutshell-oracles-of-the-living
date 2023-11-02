@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react"
 import { Message } from "./Message"
 
@@ -6,7 +7,7 @@ export const MessageList = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/messages&userId=${messages.userId}`)
+            fetch(`http://localhost:8088/messages?_expand=user`)
                 .then(response => response.json())
                 .then((messageArray) => {
                     setMessages(messageArray)
@@ -16,12 +17,11 @@ export const MessageList = () => {
     )
 
     return <article className="messages">
-    {
-        messages.map(message => <Message key={`message--${message.id}`}
-            id={message.id} 
-            userId={message.userId} 
-            message={message.message} />)
-    }
+
+
+    <header></header>
+    <div>{messages.map(message => <Message key={`message--${message.id}`} message={message} />)}</div>
+    
 </article>
 
 }

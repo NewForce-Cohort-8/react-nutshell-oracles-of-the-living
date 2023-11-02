@@ -18,11 +18,7 @@ export const MessageDetails = () => {
     )
 
     return <section className="message">
-        <header className="employee__header">Name: {employee?.user?.fullName}</header>
-    <div>Email: {employee?.user?.email}</div>
-    <div>Specialty: {employee.specialty}</div>
-    <div>Rate: {employee.rate}</div>
-    <footer className="employee__footer">Currently working on {employee?.employeeTickets?.length} tickets</footer>
+
     
     
 </section>

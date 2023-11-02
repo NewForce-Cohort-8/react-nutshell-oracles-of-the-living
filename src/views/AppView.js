@@ -1,4 +1,7 @@
 import { Route } from "react-router-dom";
+import { MessageList } from "../messages/MessageList";
+import { Message } from "../messages/Message";
+import { MessageContainer } from "../messages/MessageContainer";
 
 
 <div className='Dashboard'>
@@ -13,7 +16,9 @@ export const ApplicationViews = () => {
 	if (nutshellUserObject) {
 		return (
 			<>
-				<div className='Dashboard'></div>
+				<div className='Dashboard'>
+					<MessageContainer />
+				</div>
 			</>
 		);
 	}

@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from "react" // i basically copied honey-rae-repiar for this 
 import { useNavigate } from "react-router-dom";
 import { TaskCreateTaskButton } from "./TaskCreateTask";
+import { TaskDeleteButton } from "./TaskDelete";
+import { Link } from "react-router-dom";
 import "../tasks/tasks.css"
 
 export const TaskList = () => {
@@ -25,7 +27,11 @@ export const TaskList = () => {
                                  <article className="tasklist">
                                               {                           ///added this "checkbox" for show/noshow after checked          
                                                          tasks.map( (task, checkbox) => {
-                                                                                return <section className="task" key={checkbox}>  
+                                                                                return <>
+                                                                                <header>
+    <Link to={`/tasks/${task.id}/edit`}>edit{task.id}</Link>
+</header>
+                                                                                <section className="task" key={checkbox}>  
                                                                                                                  {/* /// key is checkbox */}
                                                                                          <label>  
                                                                                             <input className="ckeckbox-btn" type="checkbox" onChange={()=>{
@@ -35,12 +41,16 @@ export const TaskList = () => {
                                                                                          }}/> 
 
                                                                                          {!task.completed ? (
+                                                                                            
                                                                                             <span className="task-date">
-                                                                                              {task.task} / Complete By {task.neededBy}
+                                                                                        
+                                                                                              {task.task} / Complete By {task.neededBy} 
                                                                                             </span>
                                                                                           ) : null}
+                                                                                          <TaskDeleteButton taskId={task.id}/>
                                                                                           </label>
-                                                                                    </section> 
+                                                                                    </section>
+                                                                                     </>
                                                                                }
                                                                       )
 

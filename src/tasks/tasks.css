@@ -2,23 +2,22 @@
 
 .taskContainer {
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    margin: 20px; /* Adjust margin as needed */
+    justify-content: center; 
+    margin: 20px;
   }
   .taskListCard {
-    width: 400px; /* Set the width for the card */
-    background-color: #fff; /* White background */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft box-shadow */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding within the card */
+    width: 400px; 
+    background-color: #fff; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    padding: 20px; 
   }
 .taskList {
     display: flex;
     flex-direction: column;
 }
 .task {
-    width: 300px; /* Set a fixed width for the task cards */
-    /* Other properties remain the same */
+    width: 300px; 
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -27,13 +26,12 @@
   }
   
   .task:hover {
-    background-color: #f5f5f5; /* Change background color on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
-    transform: scale(1.02); /* Slightly scale the item on hover */
+    background-color: #f5f5f5; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.02); 
   }
 
   .taskForm .btn {
-    /* Your existing button styles */
     display: block;
     width: 200px;
     padding: 15px;
@@ -49,7 +47,7 @@
   .taskForm .btn:hover {
     background-color: #2980b9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05); /* Adjusted scale on hover */
+    transform: scale(1.05); 
   }
   
   
@@ -96,26 +94,9 @@
     text-align: center;
     text-transform: capitalize;
     margin-top: 0;
-    margin-bottom: 1.5rem; /* Adjust margin for spacing */
+    margin-bottom: 1.5rem; 
   }
   
-  
-  .tasklist {
-    margin: 0;
-    padding: 0;
-    margin-left: 1rem;
-    list-style: none;
-  }
-  
-  .list li:has(input:checked) label {
-    color: hsl(200, 20%, 40%);
-  }
-  
-  .tasklist {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
   .formContainer {
     display: flex;
     justify-content: center;
@@ -136,17 +117,17 @@
     padding: 15px;
     margin: 0 auto;
     font-size: 16px;
-    background-color: #3498db; /* Set default background color */
-    color: #fff; /* Set default text color */
+    background-color: #3498db; 
+    color: #fff; 
     border: none;
     border-radius: 5px;
-    transition: all 0.3s ease; /* Add a smooth transition effect */
+    transition: all 0.3s ease; 
   }
   
   .create-task-btn:hover {
-    background-color: #2980b9; /* Change background color on hover */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
-    transform: scale(1.1); /* Scale the button slightly on hover */
+    background-color: #2980b9; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1); 
   }
   .delete-btn {
     background-color: red;
@@ -164,56 +145,4 @@
   
   
   
-  /* .list li {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  } */
   
-  /* .list li label {
-    display: flex;
-    gap: 0.25rem;
-    cursor: pointer;
-    align-items: center;
-  } */
-  
-  /* .list li:has(input:focus-visible) label {
-    outline: 1px solid hsl(200, 100%, 50%);
-  } */
-  
-  /* .tasklist li input {
-    outline: none;
-    width: 0;
-    height: 0;
-    appearance: none;
-    pointer-events: none;
-    position: absolute;
-  } */
-  
-  /* .tasklist li label::before {
-    content: "";
-    display: block;
-    width: 0.9rem;
-    height: 0.9rem;
-    background: hsl(200, 100%, 90%);
-    border-radius: 0.25em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-  
-  /* .tasklist li label:hover::before {
-    background: hsl(200, 100%, 80%);
-  } */
-  
-  /* .tasklist li:has(input:checked) label::before {
-    content: "✔";
-    background: hsl(200, 100%, 40%);
-    color: hsl(200, 100%, 90%);
-    font-size: 0.75rem;
-    font-weight: bold;
-  } */
-  
-  /* .list li:has(input:checked) label:hover::before {
-    background: hsl(200, 100%, 30%);
-  } */

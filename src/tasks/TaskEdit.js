@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react" //copied from book6 boilerplate code 
 import { useNavigate, useParams } from "react-router-dom"
+import { getTask, getTaskEdit, updateTaskEdit } from "./TaskApiManager";
 
 export const TaskEdit = () => {
     const [task, assignTask] = useState({
@@ -10,8 +11,7 @@ export const TaskEdit = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`http://localhost:8088/tasks/${taskId}`)
-            .then(response => response.json())
+        getTaskEdit(taskId)
             .then((data) => {
                 assignTask(data)
             })
@@ -20,14 +20,7 @@ export const TaskEdit = () => {
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-        return fetch(`http://localhost:8088/tasks/${taskId}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(task)
-        })
-            .then(response => response.json())
+  updateTaskEdit(taskId, task)
             .then(() => {
                 navigate("/tasks")
             })

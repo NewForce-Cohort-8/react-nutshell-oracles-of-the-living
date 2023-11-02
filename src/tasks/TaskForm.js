@@ -45,11 +45,11 @@ const taskToSendToAPI ={
   <div className="taskFormCard">
         <form className="taskForm">
              {/* /////////////////////////////////////////////////////// Task by Juan : manipulated honeyraerepair code from book 6 to fit this project  */}
-            <h2 className="taskForm__title">New Task</h2>
+            <h2 className="taskForm-title">New Task</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="description">Task Name:</label>
-                    <input required autoFocus type="text" className="form-control" placeholder="Brief description of task"
+                    <input required autoFocus type="text" className="form-control" id="description" placeholder="Brief description of task"
                         value={task.task} onChange={
                             (evt) => {
                                 const copy = {...task}
@@ -58,10 +58,10 @@ const taskToSendToAPI ={
                             }
                         } />
                 </div>
-                <div class="">
-                    <label className="labelDate" htmlForfor="serviceDate">Date needed To be Completed</label>
+                <div className="task">
+                    <label className="labelDate" htmlFor="serviceDate">Date needed To be Completed</label>
                     <input 
-                    
+                    id="serviceDate"
                     type="date"
                     className="form-date"
                      value={task.neededBy} 

@@ -47,7 +47,7 @@ export const TaskEdit = () => {
                 }}
               ></textarea>
             </div>
-            <div class="">
+            <div className="task-date">
               <label className="labelDate" htmlFor="serviceDate">
                 Change Date : 
               </label>

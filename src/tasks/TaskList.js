@@ -31,35 +31,30 @@ export const TaskList = () => {
                                                                         <div className="taskListCard">
                                                                          <h2> To-Do List </h2>
                                                                             <article className="tasklist">
-                                                                                        {      tasks.map( (task, checkbox) => {
-                                                                                                                            return <>
+                                                                                        {      tasks.map( (task) => {
+                                                                                                                            return <section key={task.id}>
                                                                                                                             <header>
                                                                                                                             {/* //this liink is for editing tasks */}
                                                                                                                                 <Link to={`/tasks/${task.id}/edit`}>edit {task.id}</Link> 
                                                                                                                             </header>
 
-                                                                                                                            <section className="task" key={checkbox}>  
+                                                                                                                            <section className="task" key={task.id} >  
                                                                                                                                                             {/* /// key is checkbox */}
-                                                                                                                                    <label>  
-                                                                                                                                            <input className="ckeckbox-btn" type="checkbox" onChange={()=>{
-                                                                                                                                                const updatedTasks = [...tasks];
-                                                                                                                                                updatedTasks[checkbox].completed = !updatedTasks[checkbox].completed
-                                                                                                                                                setTasks(updatedTasks)
-                                                                                                                                             }} /> 
+                                                                                                                                    <label className="checkbox-btn">  
+                                                                                                                                            <input id={`taskCheckbox_${task.id}`} className="ckeckbox-btn" type="checkbox" /> 
                                                                                                                                      {/* //for checkbox to work */}
-                                                                                                                                            {!task.completed ? (   
-                                                                                                                                                
+                                                                                                                                            
                                                                                                                                                 <span className="task-date">
-                                                                                                                                            {/* The <span> tag is  like <div> element, but better for css */}
+                                                                                                                                            
                                                                                                                                                 { task.task} by {task.neededBy} 
                                                                                                                                                 </span>
-                                                                                                                                            ) : null}
+                                                                                                                                            
                                                                                                                                     <br></br>
                                                                                                                                             <TaskDeleteButton taskId={task.id} onDelete={handleTaskDelete}/>
                                                                                                                                     </label>
 
                                                                                                                                 </section>
-                                                                                                                                </>
+                                                                                                                                </section>
                                                                                                                         }
                                                                                                                     )
                                                                                                            }

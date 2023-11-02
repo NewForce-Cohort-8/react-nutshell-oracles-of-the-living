@@ -1,6 +1,6 @@
 import { useState } from "react"//literally copy and pasted from book6 Ticket list 1-2 boilerplate code 
 import { useNavigate } from "react-router-dom"
-
+import { getTaskForm } from "./TaskApiManager";
 import "../tasks/tasks.css"
 
 export const TaskForm = () => {
@@ -35,13 +35,7 @@ const taskToSendToAPI ={
     dateCompleted: ""
 }
         // TODO: Perform the fetch() to POST the object to the API
-        return fetch(` http://localhost:8088/tasks`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(taskToSendToAPI)
-        }).then(response => response.json()).then(()=>{
+        getTaskForm(taskToSendToAPI).then(()=>{
             navigate("/tasks")
         })
     }

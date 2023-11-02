@@ -16,8 +16,17 @@ export const updateTaskEdit = (taskId, taskData) => {
         body: JSON.stringify(taskData)
     }).then(response => response.json());
 };
-export const deleteTask = (taskId) => {
+export const getTaskDelete = (taskId) => {
     return fetch(`http://localhost:8088/tasks/${taskId}`, {
         method: "DELETE"
     });
+};
+export const getTaskForm = (taskData) => {
+    return fetch(`http://localhost:8088/tasks`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(taskData)
+    }).then(response => response.json());
 };

@@ -34,7 +34,7 @@ export const TaskList = () => {
                                                          tasks.map( (task, checkbox) => {
                                                                                 return <>
                                                                                 <header>
-    <Link to={`/tasks/${task.id}/edit`}>edit{task.id}</Link>
+    <Link to={`/tasks/${task.id}/edit`}>edit {task.id}</Link>
 </header>
                                                                                 <section className="task" key={checkbox}>  
                                                                                                                  {/* /// key is checkbox */}

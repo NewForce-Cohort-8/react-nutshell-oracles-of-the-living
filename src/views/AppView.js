@@ -1,3 +1,6 @@
+import { Route } from "react-router-dom";
+
+
 <div className='Dashboard'>
 	<header className='App-header'>
 		<h1>Welcome to Nutshell</h1>

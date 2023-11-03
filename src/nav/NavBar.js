@@ -24,6 +24,11 @@ export const NavBar = () => {
 							Images
 						</Link>
 					</li>
+					<li className='navbar__item navbar__task'>
+						<Link className='navbar__link' to='/tasks'>
+							Tasks
+						</Link>
+					</li>
 				</>
 			) : (
 				""

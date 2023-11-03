@@ -23,8 +23,12 @@ export const NewsContainer = () => {
 
     return (
         <>
-        <NewsForm   updateArticleState={updateArticleState}   /> 
+        <div className="container-md">
+        <NewsForm   updateArticleState={updateArticleState}   />
+        </div> 
+        <div className="container-sm">
         <NewsArticleList   articleEntries={articleEntries}  updateArticleState={updateArticleState}/>
+        </div>
         </>
     )
 }

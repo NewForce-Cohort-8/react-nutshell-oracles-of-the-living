@@ -46,53 +46,37 @@ export const ArticleEntry = ({ singleArticle, updateArticleState }) => {
 
     return <>
         {!showForm ?
-        <>
-            <div class="card text-center">
-                <div class="card-header">
-                    {singleArticle.title}
+            <>
+                <div class="card text-center">
+                    <div class="card-header">
+                        {singleArticle.title}
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-text">{singleArticle.synopsis}</h2>
+                        <p class="card-text">{singleArticle.url}</p>
+                    </div>
+                    <button className="btn btn-primary" aria-label="edit" onClick={() => setShowForm(!showForm)}>Edit</button>
+                    <button className="btn btn-success" aria-label="delete" onClick={() => deleteArticleEntry(singleArticle.id)}>Delete</button>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <button className="btn btn-primary" aria-label="edit" onClick={() => setShowForm(!showForm)}>Edit</button>
-            <button className="btn btn-danger" aria-label="delete" onClick={() => deleteArticleEntry(singleArticle.id)}>Delete</button>
-            </div>
-            
+
             </>
 
             :
 
-            <div className="card">
+            <div className="card text-center">
 
-                <div className="card-body">
-                    <input name="title" type="text" placeholder="" value={editArticle.title} onChange={handleControlledInputChange} />
-                    <button className="btn btn-success" onClick={(e) => UpdateEntry(e)}> Save </button>
-                    <button className="btn btn-primary" onClick={() => setShowForm(!showForm)}> Cancel </button>
+                <div className="card-header">
+                    <h4> Edit Entry: </h4>
+                    <input name="title" type="text" className="form-control" placeholder="" value={editArticle.title} onChange={handleControlledInputChange} />
                 </div>
                 <div className="card-body">
-                    <input name="url" className="textarea" placeholder="tell me about it ..." value={editArticle.url} onChange={handleControlledInputChange}></input>
+                    <input name="synopsis" className="form-control" placeholder="tell me about it ..." value={editArticle.synopsis} onChange={handleControlledInputChange}></input>
+                    <input name="url" className="form-control" placeholder="tell me about it ..." value={editArticle.url} onChange={handleControlledInputChange}></input>
                 </div>
-                <div>
-                    <input name="synopsis" className="input" placeholder="tell me about it ..." value={editArticle.synopsis} onChange={handleControlledInputChange}></input>
-                </div>
-
+                <button className="btn btn-success" onClick={(e) => UpdateEntry(e)}> Save </button>
+                <button className="btn btn-primary" onClick={() => setShowForm(!showForm)}> Cancel </button>
             </div >
         }
     </>
 
 }
-
-
-
-// <div className="card">
-// <div className="card-body">
-//     Title: {singleArticle.title}
-// </div>
-// <div className="card-body">
-//     URL: {singleArticle.url}
-// </div>
-// <div className="card-body">
-//     Synopsis: {singleArticle.synopsis}
-// </div>
-// </div>
-// <button type="button" class="btn" onClick={() => { deleteArticleEntry(singleArticle.id) }}>Delete</button>

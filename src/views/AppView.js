@@ -4,6 +4,7 @@ import { TaskForm } from "../tasks/TaskForm";
 import { TaskCreateTaskButton } from "../tasks/TaskCreateTask";
 import { TaskEdit } from "../tasks/TaskEdit";
 import { NewsContainer } from "../news/NewsContainer";
+import { NewsArticleList } from "../news/NewsArticleList";
 
 <div className='Dashboard'>
 	<header className='App-header'>
@@ -25,7 +26,7 @@ export const ApplicationViews = () => {
 					<Route path="/task/create" element = {<TaskForm />}> </Route>
 					<Route path="/tasks" element = {<TaskCreateTaskButton />}> </Route>
 					<Route path="tasks/:taskId/edit" element={ <TaskEdit/> } />
-					<Route path="/news" element= {<NewsContainer/>}/>
+					<Route path="/news" element= {<> <NewsContainer/> </>}/>
 				
 				</Routes>
 			</>

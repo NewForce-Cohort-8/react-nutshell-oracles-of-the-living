@@ -1,15 +1,13 @@
-import { useEffect, useState } from "react"
 import { ArticleEntry } from "./NewsArticleEntry"
-import { getAllNewsArticles } from "./NewsAPIManager"
-
 
 export const NewsArticleList = ({articleEntries, updateArticleState}) => {
 
- 
+    const sortNewsCards = articleEntries.sort((a,b) => new Date(b.dateCreated) - new Date(a.dateCreated))
+
     return (
         <>
             {
-                articleEntries.map((singleArticle) => <ArticleEntry key={`article--${singleArticle.id}`} singleArticle={singleArticle} updateArticleState={updateArticleState} />)
+               sortNewsCards.map((singleArticle) => <ArticleEntry key={`article--${singleArticle.id}`} singleArticle={singleArticle} updateArticleState={updateArticleState} />)
             }
         </>
     )

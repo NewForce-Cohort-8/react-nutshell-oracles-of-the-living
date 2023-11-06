@@ -3,6 +3,7 @@ import { NewsForm } from "./NewsForm"
 import { useEffect, useState } from "react"
 import { getAllNewsArticles } from "./NewsAPIManager"
 
+
 export const NewsContainer = () => {
 
     const [articleEntries, setArticleEntries] = useState([])
@@ -12,6 +13,7 @@ export const NewsContainer = () => {
           .then((articleArray) => {
             setArticleEntries(articleArray)
           })
+          .then()
         }
 
     useEffect(

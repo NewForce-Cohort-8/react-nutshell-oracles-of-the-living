@@ -2,7 +2,9 @@ import { useState } from "react"
 import { ArticleEntry } from "./NewsArticleEntry"
 import './NewsForm.css'
 
+
 export const NewsForm = ({ updateArticleState }) => {
+
 
 
     const [articleEntry, setArticleEntry] = useState({})
@@ -11,9 +13,10 @@ export const NewsForm = ({ updateArticleState }) => {
 
         const newArticleEntry = { ...articleEntry }
 
-        newArticleEntry[`${e.target.id}`] = e.target.value
+        newArticleEntry[`${e.target.id}`] = e.target.value 
 
         setArticleEntry(newArticleEntry)
+
     }
 
     const saveEntry = (e) => {
@@ -22,6 +25,7 @@ export const NewsForm = ({ updateArticleState }) => {
 
         const entryToSend = { ...articleEntry }
         entryToSend.userId = 1
+        entryToSend.dateCreated = new Date
 
 
         fetch("http://localhost:8088/articles", {
@@ -31,6 +35,7 @@ export const NewsForm = ({ updateArticleState }) => {
             },
             body: JSON.stringify(entryToSend),
         }).then(updateArticleState)
+        .then(setArticleEntry({}))
     }
 
 
@@ -38,17 +43,17 @@ export const NewsForm = ({ updateArticleState }) => {
         <div className="newsContainer">
             <form className="newsform" onSubmit={saveEntry}>
                 <div className="mb-3">
-                    <h2> Save a News Article </h2>
-                    <label for="title" className="form-label">Title</label>
-                    <input type="text" className="form-control" id="title"  placeholder="Title of Article" aria-describedby="title" value={articleEntry.title} onChange={handleControlledInputChange} />
+                    <h2> News Article Review </h2>
+                    <label id="title" className="form-label">Title</label>
+                    <input type="text" className="form-control" id="title" placeholder="Title of Article" aria-describedby="title" value={articleEntry.title} onChange={handleControlledInputChange} />
                 </div>
                 <div className="mb-3">
-                    <label for="url" className="form-label">URL</label>
+                    <label id="url" className="form-label">URL</label>
                     <input type="text" className="form-control" id="url" placeholder="Copy & Paste URL Here" value={articleEntry.url} onChange={handleControlledInputChange} />
                 </div>
                 <div className="mb-3">
-                    <label for="synopsis" className="form-label">Synopsis</label>
-                    <input type="text" className="form-control" id="synopsis" placeholder="What did you think?" value={articleEntry.synopsis} onChange={handleControlledInputChange} />
+                    <label id="synopsis" className="form-label">Synopsis</label>
+                    <textarea type="text" className="form-control" id="synopsis" placeholder="What did you think?" aria-label="With textarea" value={articleEntry.synopsis} onChange={handleControlledInputChange} />
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
@@ -57,3 +62,5 @@ export const NewsForm = ({ updateArticleState }) => {
     </>
 
 }
+
+

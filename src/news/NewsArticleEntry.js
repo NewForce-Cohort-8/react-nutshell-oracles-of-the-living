@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import "./NewsCard.css"
 
+
 export const ArticleEntry = ({ singleArticle, updateArticleState }) => {
 
     const [showForm, setShowForm] = useState(false)
@@ -47,13 +48,15 @@ export const ArticleEntry = ({ singleArticle, updateArticleState }) => {
     return <>
         {!showForm ?
             <>
-                <div class="card text-center">
-                    <div class="card-header">
-                        {singleArticle.title}
+                <div className="card text-center">
+                    <div className="card-header">
+                        <h3>{singleArticle.title}</h3>
+                        <a className="card-text" href={singleArticle.url}> {singleArticle.url}</a>
                     </div>
-                    <div class="card-body">
-                        <h2 class="card-text">{singleArticle.synopsis}</h2>
-                        <p class="card-text">{singleArticle.url}</p>
+                    <div className="card-body">
+                        <h5 className="card-text"> Synoposis: {singleArticle.synopsis}</h5>
+                        <p className="card-text"> Date Created: {singleArticle.dateCreated}</p>
+
                     </div>
                     <button className="btn btn-primary" aria-label="edit" onClick={() => setShowForm(!showForm)}>Edit</button>
                     <button className="btn btn-success" aria-label="delete" onClick={() => deleteArticleEntry(singleArticle.id)}>Delete</button>

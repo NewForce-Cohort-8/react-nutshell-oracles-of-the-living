@@ -17,6 +17,10 @@ export const NavBar = () => {
 					>
 						Logout
 					</Link>
+
+							<Link to="/events"> Events </Link>
+
+					
 				</li>
 			) : (
 				""

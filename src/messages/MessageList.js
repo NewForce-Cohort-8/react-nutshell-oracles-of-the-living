@@ -38,7 +38,7 @@ export const MessageList = () => {
         )
 
 
-    return <article className="messages" onClick={(event) => {event.target.scrollTop}}>
+    return <article className="messages">
 
     <section>
     <header className="message-header">📝Message Board📝</header>

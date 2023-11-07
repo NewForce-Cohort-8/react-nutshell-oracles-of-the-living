@@ -25,15 +25,35 @@ export const ApplicationViews = () => {
 	if (nutshellUserObject) {
 		return (
 			<>
-			<Routes>
-				
-	
-					<Route path="/tasks" element = {<TaskList />}> </Route>
-					<Route path="/task/create" element = {<TaskForm />}> </Route>
-					<Route path="/tasks" element = {<TaskCreateTaskButton />}> </Route>
-					<Route path="tasks/:taskId/edit" element={ <TaskEdit/> } />
-				
-				</Routes>
+				<div className='Dashboard'>
+					<Routes>
+						<Route
+							path='/'
+							element={
+								<>
+									<h1>Nutshell</h1>
+									<Outlet />
+								</>
+							}
+						>
+							<Route path='images' element={<ImageContainer />} />
+							<Route path='image/create' element={<ImageForm />} />
+							<Route path='images/:imageId/edit' element={<ImageEdit />} />
+							<Route path='/tasks' element={<TaskList />}>
+								{" "}
+							</Route>
+							<Route path='/task/create' element={<TaskForm />}>
+								{" "}
+							</Route>
+							<Route path='/tasks' element={<TaskCreateTaskButton />}>
+								{" "}
+							</Route>
+							<Route path='tasks/:taskId/edit' element={<TaskEdit />} />
+              <Route path="/news" element= {<> <NewsContainer/> </>}/>
+						</Route>
+							<Route path='/messages' element={<MessageContainer/>} />
+					</Routes>
+				</div>
 			</>
 		);
 	}

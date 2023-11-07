@@ -6,7 +6,9 @@ import { TaskList } from "../tasks/TaskList";
 import { TaskForm } from "../tasks/TaskForm";
 import { TaskCreateTaskButton } from "../tasks/TaskCreateTask";
 import { TaskEdit } from "../tasks/TaskEdit";
+import { NewsContainer } from "../news/NewsContainer";
 import { ImageContainer } from "../images/ImageContainer";
+
 <div className='Dashboard'>
 	<header className='App-header'>
 		<h1>Welcome to Nutshell</h1>
@@ -44,6 +46,7 @@ export const ApplicationViews = () => {
 								{" "}
 							</Route>
 							<Route path='tasks/:taskId/edit' element={<TaskEdit />} />
+              <Route path="/news" element= {<> <NewsContainer/> </>}/>
 						</Route>
 					</Routes>
 				</div>

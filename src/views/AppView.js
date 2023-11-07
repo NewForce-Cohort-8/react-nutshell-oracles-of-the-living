@@ -1,8 +1,14 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
+import { ImageEdit } from "../images/ImageEdit";
+import { ImageForm } from "../images/ImageForm";
+import { ImageList } from "../images/ImageList";
 import { TaskList } from "../tasks/TaskList";
 import { TaskForm } from "../tasks/TaskForm";
 import { TaskCreateTaskButton } from "../tasks/TaskCreateTask";
 import { TaskEdit } from "../tasks/TaskEdit";
+import { NewsContainer } from "../news/NewsContainer";
+import { ImageContainer } from "../images/ImageContainer";
+
 import { MessageContainer } from "../messages/MessageContainer";
 
 
@@ -26,11 +32,9 @@ export const ApplicationViews = () => {
 					<Route path="/task/create" element = {<TaskForm />}> </Route>
 					<Route path="/tasks" element = {<TaskCreateTaskButton />}> </Route>
 					<Route path="tasks/:taskId/edit" element={ <TaskEdit/> } />
-					<Route path="/messages" element={ <MessageContainer />} />
 				
 				</Routes>
 			</>
 		);
 	}
 };
-

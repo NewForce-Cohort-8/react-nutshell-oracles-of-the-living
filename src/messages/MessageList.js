@@ -7,6 +7,8 @@ import { AddMessage } from "./AddMessage"
 export const MessageList = () => {
     const [messages, setMessages] = useState([])
 
+    const [reverseMessages, setReverseMessages] = useState([])
+
 /*const getMessageWithExpandedUser = () => {
  return fetch(`http://localhost:8088/messages?_expand=user`)
                 .then(response => response.json())
@@ -27,13 +29,23 @@ export const MessageList = () => {
         []
     )
 
-    return <article className="messages">
+        useEffect(
+         () => {return setReverseMessages(
+                messages.reverse()
+            )
+         }, [messages]
+
+        )
+
+
+    return <article className="messages" onClick={(event) => {event.target.scrollTop}}>
 
     <section>
     <header className="message-header">📝Message Board📝</header>
-    <div className="message-box">{messages.map(message => <Message key={`message--${message.id}`} message={message}  />)}</div>
+    <div className="message-box">{reverseMessages.map(message => <Message key={`message--${message.id}`} message={message}  />)}</div>
     </section>
     
 </article>
 
 }
+

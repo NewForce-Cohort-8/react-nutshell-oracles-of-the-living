@@ -7,7 +7,11 @@ export const NewsForm = ({ updateArticleState }) => {
 
 
 
-    const [articleEntry, setArticleEntry] = useState({})
+    const [articleEntry, setArticleEntry] = useState({
+        title: "",
+        url: "",
+        synopsis: "" 
+    })
 
     const handleControlledInputChange = (e) => {
 
@@ -35,7 +39,7 @@ export const NewsForm = ({ updateArticleState }) => {
             },
             body: JSON.stringify(entryToSend),
         }).then(updateArticleState)
-        .then(setArticleEntry({}))
+        .then(setArticleEntry())
     }
 
 

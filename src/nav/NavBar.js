@@ -7,11 +7,9 @@ export const NavBar = () => {
 		<ul className='navbar'>
 
 			{localStorage.getItem("activeUser") ? (
+				<>
 				<li className='navbar__item navbar__logout'>
-					<Link
-						className='navbar__link'
-						to=''
-						onClick={() => {
+					<Link className='navbar__link' to='' onClick={() => {
 							localStorage.removeItem("activeUser");
 							navigate("/", { replace: true });
 						}}
@@ -19,44 +17,27 @@ export const NavBar = () => {
 						Logout
 					</Link>
 				</li>
-
-
-			) : (
-				""
-			)}
-
-			{localStorage.getItem("activeUser") ? (
-				<li className='navbar__item navbar__news'>
-					<Link
-						className='navbar__link'
-						to='/news'
-					>
-						News
-					</Link>
-				</li>
-
-			) : (
-				""
-			)}
-
-			{localStorage.getItem("activeUser") ? (
 				<li className='navbar__item navbar__tasks'>
-					<Link
-						className='navbar__link'
-						to='/tasks'
-					>
+					<Link className='navbar__link' to='/tasks'>
 						Tasks
 					</Link>
 				</li>
+				<li className='navbar__item navbar__logout'>
+				<Link className='navbar__link' to='/images'>
+					Images
+				</Link>
+			</li>
+			<li className='navbar__item navbar__news'>
+					<Link className='navbar__link' to='/news'>
+						News
+					</Link>
+				</li>
+			</>
+			
 
 			) : (
 				""
 			)}
-					<li className='navbar__item navbar__logout'>
-						<Link className='navbar__link' to='/images'>
-							Images
-						</Link>
-					</li>
 					
 		</ul>
 	);

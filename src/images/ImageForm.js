@@ -1,23 +1,20 @@
 //author: Logan Van Meter
 //purpose: Add an image to the database linked to the user adding the image
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { makeImage } from "./ImageApiManager";
+import {
+	getAllImageTagsFromApi,
+	makeImage,
+	makeImageTag,
+	makeTaggedImage,
+	getAllImagesFromUserId,
+} from "./ImageApiManager";
 
 export const ImageForm = () => {
 	const [image, updateImage] = useState({
 		src: "",
 		caption: "",
 		userId: 0,
-	});
-
-	const [tags, updateTags] = useState({
-		name: "",
-	});
-
-	const [imageTag, updateImageTag] = useState({
-		imageId: 0,
-		tagId: 0,
 	});
 
 	const navigate = useNavigate();
@@ -32,10 +29,15 @@ export const ImageForm = () => {
 			caption: image.caption,
 			userId: activeUserObject.id,
 		};
+
+		const submitForm = () => {
+			return makeImage(imageToSendToAPI).then(() => {
+				navigate("/images");
+			});
+		};
+
 		// TODO: Perform the fetch() to POST the object to the API
-		return makeImage(imageToSendToAPI).then(() => {
-			navigate("/images");
-		});
+		return submitForm();
 	};
 
 	return (
@@ -61,9 +63,11 @@ export const ImageForm = () => {
 			</fieldset>
 			<fieldset>
 				<div className='form-group'>
-					<label htmlFor='name'>Caption:</label>
+					<label htmlFor='caption'>Caption:</label>
 					<input
 						type='text'
+						className='form-control'
+						placeholder='Image caption'
 						value={image.caption}
 						onChange={(event) => {
 							const copy = { ...image };

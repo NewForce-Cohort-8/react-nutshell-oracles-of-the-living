@@ -1,9 +1,10 @@
 .image {
-	width: 5em;
+	width: 18em;
 }
 
 .images {
 	width: 100vw;
+	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 }

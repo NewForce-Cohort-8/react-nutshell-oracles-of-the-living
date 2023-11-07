@@ -11,7 +11,6 @@ export const ImageEdit = () => {
 		userId: 0,
 	});
 	const navigate = useNavigate();
-
 	useEffect(() => {
 		getImageById(imageId).then((data) => {
 			const singleImage = data[0];

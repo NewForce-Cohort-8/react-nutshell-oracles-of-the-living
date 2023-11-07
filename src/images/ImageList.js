@@ -1,31 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllImagesFromApi } from "./ImageApiManager";
 import { Image } from "./Image";
 
-export const ImageList = () => {
-	const [images, setImages] = useState([]);
+export const ImageList = ({ allImages, getAllImages }) => {
 	const [filteredImages, setFiltered] = useState([]);
 	const activeUser = localStorage.getItem("activeUser");
 	const activeUserObject = JSON.parse(activeUser);
 	const navigate = useNavigate();
 
-	const getAllImages = () => {
-		getAllImagesFromApi().then((imagesArray) => {
-			setImages(imagesArray);
-		});
-	};
-
 	useEffect(() => {
-		getAllImages();
-	}, []);
-
-	useEffect(() => {
-		const myImages = images.filter(
+		const myImages = allImages.filter(
 			(image) => image.userId === activeUserObject.id
 		);
 		setFiltered(myImages);
-	}, [images]);
+	}, [allImages]);
 
 	return (
 		<>

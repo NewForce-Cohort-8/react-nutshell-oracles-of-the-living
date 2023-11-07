@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import "../messages/messages.css"
 
 export const MessageDetails = () => {
     const {messageId} = useParams() 

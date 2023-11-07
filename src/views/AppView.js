@@ -3,9 +3,6 @@ import { TaskList } from "../tasks/TaskList";
 import { TaskForm } from "../tasks/TaskForm";
 import { TaskCreateTaskButton } from "../tasks/TaskCreateTask";
 import { TaskEdit } from "../tasks/TaskEdit";
-import { Route } from "react-router-dom";
-import { MessageList } from "../messages/MessageList";
-import { Message } from "../messages/Message";
 import { MessageContainer } from "../messages/MessageContainer";
 
 
@@ -29,6 +26,7 @@ export const ApplicationViews = () => {
 					<Route path="/task/create" element = {<TaskForm />}> </Route>
 					<Route path="/tasks" element = {<TaskCreateTaskButton />}> </Route>
 					<Route path="tasks/:taskId/edit" element={ <TaskEdit/> } />
+					<Route path="/messages" element={ <MessageContainer />} />
 				
 				</Routes>
 			</>

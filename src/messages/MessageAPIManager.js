@@ -13,3 +13,9 @@ export const postNewMessage = (message) => {
 		body: JSON.stringify(message),
 	});
 };
+
+export const deleteMessage = (messageId) => {
+    return fetch(`http://localhost:8088/messages/${messageId}`, {
+        method: "DELETE"
+    });
+};

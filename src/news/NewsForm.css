@@ -1,0 +1,19 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+
+
+.create-news-btn {
+    background: hsl(200, 100%, 50%, 0.1);
+    border: 1px solid hsl(200, 100%, 50%);
+    color: hsl(200, 100%, 50%);
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .newsContainer {
+    background-color: rgb(216, 255, 208);
+    border: 1px solid hsl(223, 100%, 89%);
+    padding: .5em 0.5em;
+    border-radius: 0.25em;
+  }

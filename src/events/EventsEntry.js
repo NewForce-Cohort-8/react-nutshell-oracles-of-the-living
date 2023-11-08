@@ -4,7 +4,7 @@ import { LocationSelect } from "./EventsLocation"
 
 
 
-export const EventEntry = ({singleEvent, deleteEventEntry, updateEventState}) => {
+export const EventEntry = ({singleEvent }) => {
   const [showForm, setShowForm] = useState(false)
   const [editEvent, setEditEvent] = useState({})
 
@@ -37,19 +37,16 @@ const updateEntry = (e) => {
       }).then(r=> r.json())
       .then(() => {
         setShowForm(false)
-        updateEventState()})
+        })
       
 }
 
 
- const deleteEventsEntry = () => {
+ const deleteEventsEntry = (deleteEvent) => {
   if(singleEvent.id){
       return <button onClick={() => {
-          fetch("http://localhost:8088/events/${deleteEvent.id}", {
+          fetch(`http://localhost:8088/events/${deleteEvent}`, {
               method: "DELETE"
-          })
-          .then(() => {
-              
           })
       }} className= "delete">Delete</button>
   }
@@ -74,16 +71,14 @@ const updateEntry = (e) => {
            <p></p>
            <p></p>
            <p></p>
-           <p></p>
-           <p>{singleEvent.dateTime}</p>
-      <button className="btn btn-warning" aria-label="edit" onClick={() => setShowForm(!showForm)}></button>
-      <button className="btn btn-danger" aria-label="delete" onClick={() => deleteEventsEntry(singleEvent.id)}></button>
     </div>
     <div className="event-body">
-    {singleEvent.entryText}
       </div>
-      <div>users: {singleEvent.event}</div>
-      <div>users: {singleEvent.user}</div>
+      <div>Location: {singleEvent.location}</div>
+      <div>Description: {singleEvent.entryText}</div>
+      <button className="btn btn-warning" aria-label="edit" onClick={() => setShowForm(!showForm)}>Edit</button>
+      <button className="btn btn-danger" aria-label="delete" onClick={() => {
+         deleteEventsEntry(+singleEvent.id)}}>Delete</button>
 
     </article>
     :
@@ -100,15 +95,16 @@ const updateEntry = (e) => {
      <p></p>
      <p></p>
      <input type="Date" name="dateTime" value={editEvent.dateTime}  onChange={handleControlledInputChange}/>
-<button className="btn btn-success"  onClick={(e) => updateEntry(e)}>Save</button>
-<button className="btn btn-secondary"  onClick={() => setShowForm(!showForm)}>Cancel</button>
 </div>
 <div className="event-body">
-<textarea name="entryText" className="textarea" placeholder="Event entry field." value={editEvent.entryText}  onChange={handleControlledInputChange}></textarea>
+<input name="entryText" type="text" placeholder="Event entry field." value={editEvent.location}  onChange={handleControlledInputChange} />
 </div>
-<LocationSelect handleControlledInputChange={handleControlledInputChange} EventEntry={editEvent} />
-<div>User: {singleEvent.userId}</div>
+<div className="event-body">
+<textarea name="entryText" className="textarea" placeholder="Event location field." value={editEvent.entryText}  onChange={handleControlledInputChange}> </textarea>
+</div>
 
+<button className="btn btn-success"  onClick={(e) => updateEntry(e)}>Save</button>
+<button className="btn btn-secondary"  onClick={() => setShowForm(!showForm)}>Cancel</button>
 
 
 </article>

@@ -1,10 +1,12 @@
 // NH
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 
-export const EventForm = ({updateEventState}) => {
+export const EventForm = ({}) => {
  const [EventEntry, setEventEntry] = useState({})
 
+ const navigate = useNavigate()
  const activeUser = localStorage.getItem("activeUser");
 	const activeUserObject = JSON.parse(activeUser);
 
@@ -32,7 +34,8 @@ export const EventForm = ({updateEventState}) => {
           },
           body: JSON.stringify(entryToSend),
         }).then(r => r.json())
-        .then(r => setEventEntry({})).then(updateEventState)
+        .then(r => setEventEntry({}))
+        .then(() => navigate("/events"))
  }}
 
 

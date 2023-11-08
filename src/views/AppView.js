@@ -15,7 +15,7 @@ import { NewsContainer } from "../news/NewsContainer";
 import { ImageContainer } from "../images/ImageContainer";
 
 import { MessageContainer } from "../messages/MessageContainer";
-
+// updateEventState={<EventForm/>}
 
 <div className='Dashboard'>
 	<header className='App-header'>
@@ -32,9 +32,8 @@ export const ApplicationViews = () => {
 			<>
 				<div className='Dashboard'>
 					<Routes>
-					<Route path="/events/create" element={<EventForm updateEventState={<EventForm/>} />} />
+					<Route path="/events/create" element={<EventForm  />} />
 					<Route path="/events" element={<EventList/>}/>
-					<Route Path ="/events/delete" element={<deleteEventsEntry/>} />
 					
 					</Routes>
 				

@@ -1,11 +1,14 @@
 // NH
 import { useState, useEffect } from "react";
 import { EventEntry } from "./EventsEntry";
+import { EventForm } from "./EventsForm";
+import { useNavigate } from "react-router-dom";
 
-export const EventList = ({ deleteEventEntry, updateEventState}) => {
+
+export const EventList = ({ }) => {
 
 const [eventEntries, setEventEntries] = useState([])
-
+ const navigate = useNavigate()
 
   useEffect(
     () => {
@@ -21,8 +24,11 @@ const [eventEntries, setEventEntries] = useState([])
     
 return (
     <>
+    <button onClick={() => navigate("/events/create")}> Create New Event </button>
   {
-    eventEntries.map((singleEvent) => <EventEntry key={`event--${singleEvent.id}`} singleEvent = {singleEvent} deleteEventEntry={deleteEventEntry} updateEventState={updateEventState}/> )
+    eventEntries.map((singleEvent) => {
+    return <>
+    <EventEntry key={`event--${singleEvent.id}`} singleEvent = {singleEvent} /> </>}) 
   }
 </>
 )

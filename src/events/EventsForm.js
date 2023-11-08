@@ -1,7 +1,5 @@
-import { useState } from "react"
-import { LocationSelect } from "./EventsLocation"
-import userEvent from "@testing-library/user-event";
 
+import { useState } from "react"
 
 
 export const EventForm = ({updateEventState}) => {
@@ -65,9 +63,10 @@ export const EventForm = ({updateEventState}) => {
                 </div>
             </div>
             <div className="control">
-                <button type="submit" className="button is-primary">Submit</button>
+                <button type="submit" className="btn btn-success">Submit</button>
             </div>
      
         </form>
     )
 }
+

@@ -1,6 +1,6 @@
+
 import { useState, useEffect } from "react";
 import { EventEntry } from "./EventsEntry";
-
 
 export const EventList = ({ deleteEventEntry, updateEventState}) => {
 

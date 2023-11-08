@@ -34,6 +34,11 @@ export const NavBar = () => {
 							Tasks
 						</Link>
 					</li>
+					<li className='navbar__item navbar__events'>
+						<Link className='navbar__link' to='/events'>
+							Events
+						</Link>
+					</li>
 				</>
 			) : (
 				""

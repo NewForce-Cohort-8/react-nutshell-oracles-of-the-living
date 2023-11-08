@@ -1,6 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+
 import { EventForm } from "../events/EventsForm";
 import { EventList } from "../events/EventsList";
+
 
 import { Outlet, Route, Routes } from "react-router-dom";
 import { ImageEdit } from "../images/ImageEdit";
@@ -30,6 +31,8 @@ export const ApplicationViews = () => {
 					<Routes>
 					<Route path="/events/create" element={<EventForm updateEventState={<EventForm/>} />} />
 					<Route path="/events" element={<EventList/>}/>
+					<Route Path ="/events/delete" element={<deleteEventsEntry/>} />
+					
 					</Routes>
 				
 					<Routes>

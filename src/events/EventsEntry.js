@@ -1,5 +1,7 @@
+
 import { useEffect, useState } from "react"
 import { LocationSelect } from "./EventsLocation"
+
 
 
 export const EventEntry = ({singleEvent, deleteEventEntry, updateEventState}) => {
@@ -23,7 +25,7 @@ const updateEntry = (e) => {
   e.preventDefault()
 
   const entryToSend = {...editEvent}
-  entryToSend.moodId = +entryToSend.moodId
+  entryToSend.eventId = +entryToSend.eventId
 
   
       fetch(`http://localhost:8088/events/${editEvent.id}`, {
@@ -40,10 +42,10 @@ const updateEntry = (e) => {
 }
 
 
-const deleteEventsEntry = () => {
+ const deleteEventsEntry = () => {
   if(singleEvent.id){
       return <button onClick={() => {
-          fetch("http://localhost:8088/events/${events.id}", {
+          fetch("http://localhost:8088/events/${deleteEvent.id}", {
               method: "DELETE"
           })
           .then(() => {
@@ -74,8 +76,8 @@ const deleteEventsEntry = () => {
            <p></p>
            <p></p>
            <p>{singleEvent.dateTime}</p>
-      <button className="edit" aria-label="edit" onClick={() => setShowForm(!showForm)}></button>
-      <button className="delete" aria-label="delete" onClick={() => deleteEventsEntry(singleEvent.id)}></button>
+      <button className="btn btn-warning" aria-label="edit" onClick={() => setShowForm(!showForm)}></button>
+      <button className="btn btn-danger" aria-label="delete" onClick={() => deleteEventsEntry(singleEvent.id)}></button>
     </div>
     <div className="event-body">
     {singleEvent.entryText}
@@ -98,8 +100,8 @@ const deleteEventsEntry = () => {
      <p></p>
      <p></p>
      <input type="Date" name="dateTime" value={editEvent.dateTime}  onChange={handleControlledInputChange}/>
-<button className="button is-small is-success"  onClick={(e) => updateEntry(e)}>Save</button>
-<button className="button is-small is-danger"  onClick={() => setShowForm(!showForm)}>Cancel</button>
+<button className="btn btn-success"  onClick={(e) => updateEntry(e)}>Save</button>
+<button className="btn btn-secondary"  onClick={() => setShowForm(!showForm)}>Cancel</button>
 </div>
 <div className="event-body">
 <textarea name="entryText" className="textarea" placeholder="Event entry field." value={editEvent.entryText}  onChange={handleControlledInputChange}></textarea>

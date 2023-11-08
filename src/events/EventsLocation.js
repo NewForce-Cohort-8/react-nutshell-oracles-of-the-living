@@ -48,7 +48,7 @@ export const LocationSelect = ({handleControlledInputChange, EventEntry}) => {
           
                         <div className="select">
                           <select name="locationId" onChange={handleControlledInputChange} value={EventEntry.locationId}>
-                            <option>Select dropdown</option>
+                            <option>Enter Location</option>
                                 {
                                  locations.map(location => <option key={location.id} value={location.id}>{location.locationName}</option>)
                                 }
@@ -56,7 +56,7 @@ export const LocationSelect = ({handleControlledInputChange, EventEntry}) => {
                         </div>
                     </div>
                         <div className="control" >
-                            <button className="button is-link" onClick={()=> {
+                            <button className="btn btn-primary" onClick={()=> {
                                 setShowForm(!showForm)
                             }}>Add a location</button>
                         </div>
@@ -69,7 +69,7 @@ export const LocationSelect = ({handleControlledInputChange, EventEntry}) => {
     <input className="input" name="locationName" type="text" placeholder="Add a location" value={newLocation.name} onChange={handleControlledInputChangeHere} />
   </div>
   <div className="control">
-    <button className="button is-info" onClick={saveNewLocation}>
+    <button className="btn btn-primary" onClick={saveNewLocation}>
       Add
     </button>
   </div>

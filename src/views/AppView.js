@@ -1,3 +1,8 @@
+
+import { EventForm } from "../events/EventsForm";
+import { EventList } from "../events/EventsList";
+
+
 import { Outlet, Route, Routes } from "react-router-dom";
 import { ImageEdit } from "../images/ImageEdit";
 import { ImageForm } from "../images/ImageForm";
@@ -10,7 +15,7 @@ import { NewsContainer } from "../news/NewsContainer";
 import { ImageContainer } from "../images/ImageContainer";
 
 import { MessageContainer } from "../messages/MessageContainer";
-
+// updateEventState={<EventForm/>}
 
 <div className='Dashboard'>
 	<header className='App-header'>
@@ -26,6 +31,12 @@ export const ApplicationViews = () => {
 		return (
 			<>
 				<div className='Dashboard'>
+					<Routes>
+					<Route path="/events/create" element={<EventForm  />} />
+					<Route path="/events" element={<EventList/>}/>
+					
+					</Routes>
+				
 					<Routes>
 						<Route
 							path='/'

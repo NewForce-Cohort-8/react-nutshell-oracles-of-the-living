@@ -14,6 +14,9 @@ import { TaskEdit } from "../tasks/TaskEdit";
 import { NewsContainer } from "../news/NewsContainer";
 import { ImageContainer } from "../images/ImageContainer";
 
+import { MessageContainer } from "../messages/MessageContainer";
+
+
 <div className='Dashboard'>
 	<header className='App-header'>
 		<h1>Welcome to Nutshell</h1>
@@ -60,6 +63,7 @@ export const ApplicationViews = () => {
 							<Route path='tasks/:taskId/edit' element={<TaskEdit />} />
               <Route path="/news" element= {<> <NewsContainer/> </>}/>
 						</Route>
+							<Route path='/messages' element={<MessageContainer/>} />
 					</Routes>
 				</div>
 			</>

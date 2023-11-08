@@ -43,6 +43,16 @@ export const NavBar = () => {
 			) : (
 				""
 			)}
+			{
+				localStorage.getItem("activeUser") ? (
+					<li className='navbar__item navbar__message'>
+						<Link className='navbar__link'to='/messages'>
+							Messages
+						</Link>
+					</li>
+				) : (
+				""
+			)}
 		</ul>
 	);
 };
